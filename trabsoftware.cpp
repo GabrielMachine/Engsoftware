@@ -1,21 +1,22 @@
 #include<iostream>
 #include<string>
 
+using namespace std;
 class aluno{
 
 private:
 
-    char nome_aluno[100];
+    string nome_aluno;
     int cpf;
     
 public:
     void cadastra_aluno(){
-        std::cin>>cpf;
-        std::cin.getline(nome,100);
+        cin>>cpf;
+        getline(cin,nome_aluno);
 
     }
 
-    char get_nome_aluno(){
+    string get_nome_aluno(){
         return nome_aluno;
     }
 
@@ -23,16 +24,16 @@ public:
 class exercicio{
 private:
     int codexercicio;
-    char nomeexercicio[100];
+    string nome_exercicio;
 public:
     void cadastra_exercicio(){
         std::cin>>codexercicio;
-        std::cin.getline(nome,100);
+        getline(cin,nome_exercicio);
        
     }
-    int get_nome_exercicio(){
+    string get_nome_exercicio(){
 
-        return nomeexercicio;
+        return nome_exercicio;
     }
 };
 class CatalogoAluno{
@@ -40,9 +41,9 @@ private:
     aluno A[100];
     
 public:
-    void find_aluno(char nome_aluno[]){
-        for(i=0;i<100;i++){
-            if(std::string::compare(nome_aluno,A[i].get_nome_aluno())){
+    void find_aluno(string nome_aluno){
+        for(int i=0;i<100;i++){
+            if(nome_aluno.compare(A[i].get_nome_aluno())){
                 return A[i].get_nome_aluno();
             }
         }
@@ -53,10 +54,10 @@ private:
     exercicio E[100];
     
 public:
-    void find_exercicio(char nome_exercicio[]){
-        for(i=0;i<100;i++){
-            if(std::string::compare(nome_aluno,E[i].get_nome_aluno())){
-                return E[i].get_nome_aluno();
+    void find_exercicio(string nome_exercicio){
+        for(int i=0;i<100;i++){
+            if(nome_exercicio.compare(E[i].get_nome_exercicio())){
+                return E[i].get_nome_exercicio();
             }
         }
     }
@@ -68,9 +69,9 @@ int tempo;
 int carga;
 CatalogoExercicio CE;
 public:
-void exerc_fazer(char nome_exercicio[]){
+void exerc_fazer(string nome_exercicio){
 
-    if(nome_exercicio==CE.find_exercicio()){
+    if(nome_exercicio.compare(CE.find_exercicio(nome_exercicio))){
         std::cin>>repeticoes;
         std::cin>>tempo;
         std::cin>>carga;
@@ -85,7 +86,7 @@ private:
 public:
     void incluir_nova_serie(char nome_aluno[],char nome_exercicio[]){
         if(std::string::compare(nome_aluno,CA.find_aluno(nome_aluno))){
-            inclua=1;
+            
             int fim;
             while(fim=0){
                     FE.exerc_fazer(nome_exercicio);
