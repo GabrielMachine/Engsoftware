@@ -11,8 +11,8 @@
             return $this->nome_exercicio;
         }
     }
-$aluno = new Aluno;
-$aluno->cadastra_aluno($_POST["nomeE"],$_POST["cpfE"]);
-var_dump($aluno->get_exercicio());
+$exercicio = new exercicio;
+$exercicio->cadastra_exercicio($_POST["nomeE"],$_POST["cpfE"]);
+var_dump($exercicio->get_exercicio());
 ?>
 
