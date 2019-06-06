@@ -1,7 +1,7 @@
 <html>
         <body>
         
-        <form action="trabsoftware.php" method="POST">
+        <form action="aluno.class.php" method="POST">
         Nome:<br>
         <input type="text" name="nomeU"><br>
         CPF:<br>
