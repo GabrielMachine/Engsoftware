@@ -1,6 +1,3 @@
-<html>
-<body>
-
 <?php
     class Aluno{
         private $nome_aluno;
@@ -20,6 +17,3 @@ $aluno->cadastra_aluno($_POST["nomeU"],$_POST["cpfU"]);
 var_dump($aluno->get_aluno());
 ?>
 
-
-</body>
-</html>
