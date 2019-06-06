@@ -12,6 +12,19 @@
             return $this->nome_aluno;
         }
     }
+    class Instrutor{
+        private $nome_instrutor;
+        private $cpf_instrutor;
+        public function cadastra_instrutor($nome_instrutor,$cpf_instrutor){
+            if($_POST["escolha"]=="instrutor"){
+                $this->nome_aluno=$nome_instrutor;
+                $this->cpf_aluno=$cpf_instrutor;
+            }
+        }
+        public function get_instrutor(){
+            return $this->nome_instrutor;
+        }
+    }
 $aluno = new Aluno;
 $aluno->cadastra_aluno($_POST["nomeU"],$_POST["cpfU"]);
 var_dump($aluno->get_aluno());

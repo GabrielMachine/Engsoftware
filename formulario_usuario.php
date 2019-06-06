@@ -1,7 +1,7 @@
 <html>
         <body>
         
-        <form action="aluno.class.php" method="POST">
+        <form action="usuario.class.php" method="POST">
         Nome:<br>
         <input type="text" name="nomeU"><br>
         CPF:<br>
