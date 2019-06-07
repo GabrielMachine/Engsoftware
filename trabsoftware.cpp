@@ -11,29 +11,48 @@ private:
     
 public:
     void cadastra_aluno(){
-        cin>>cpf;
+        cout<<"Cadastre o nome do aluno:";
         getline(cin,nome_aluno);
+        cout<<"Cadastre o CPF do aluno:";
+        cin>>cpf;
 
     }
 
-    string get_nome_aluno(){
-        return nome_aluno;
+    int get_aluno(){
+        return cpf;
+    }
+
+};
+class instrutor{
+
+private:
+
+    string nome_instrutor;
+    int matricula_instrutor;
+    
+public:
+    void cadastra_instrutor(){
+        getline(cin,nome_instrutor);
+        cin>>matricula_instrutor;
+    }
+
+    int get_nome_instrutor(){
+        return matricula_instrutor;
     }
 
 };
 class exercicio{
 private:
-    int codexercicio;
+    int codigo_exercicio;
     string nome_exercicio;
 public:
     void cadastra_exercicio(){
-        std::cin>>codexercicio;
         getline(cin,nome_exercicio);
-       
+        std::cin>>codigo_exercicio;
     }
-    string get_nome_exercicio(){
+    int get_exercicio(){
 
-        return nome_exercicio;
+        return codigo_exercicio;
     }
 };
 class CatalogoAluno{
@@ -41,10 +60,10 @@ private:
     aluno A[100];
     
 public:
-    void find_aluno(string nome_aluno){
+    int find_aluno(int cpf_aluno){
         for(int i=0;i<100;i++){
-            if(nome_aluno.compare(A[i].get_nome_aluno())){
-                return A[i].get_nome_aluno();
+            if(cpf_aluno==A[i].get_aluno()){
+                return A[i].get_aluno();
             }
         }
     }
@@ -54,24 +73,24 @@ private:
     exercicio E[100];
     
 public:
-    void find_exercicio(string nome_exercicio){
+    int find_exercicio(int codigo_exercicio){
         for(int i=0;i<100;i++){
-            if(nome_exercicio.compare(E[i].get_nome_exercicio())){
-                return E[i].get_nome_exercicio();
+            if(codigo_exercicio==E[i].get_exercicio()){
+                return E[i].get_exercicio();
             }
         }
     }
 };
-class fazer_exercicio{
+class item_exercicio{
 private:
 int repeticoes;
 int tempo;
 int carga;
 CatalogoExercicio CE;
 public:
-void exerc_fazer(string nome_exercicio){
+void incluir_item_exercicio(int codigo_exercicio){
 
-    if(nome_exercicio.compare(CE.find_exercicio(nome_exercicio))){
+    if(codigo_exercicio==CE.find_exercicio(codigo_exercicio)){
         std::cin>>repeticoes;
         std::cin>>tempo;
         std::cin>>carga;
@@ -82,15 +101,33 @@ void exerc_fazer(string nome_exercicio){
 class controladora_serie{
 private:
     CatalogoAluno CA;
-    fazer_exercicio FE;
+    item_exercicio IE;
 public:
-    void incluir_nova_serie(char nome_aluno[],char nome_exercicio[]){
-        if(std::string::compare(nome_aluno,CA.find_aluno(nome_aluno))){
-            
-            int fim;
-            while(fim=0){
-                    FE.exerc_fazer(nome_exercicio);
-            }
+    void incluir_exercicio_serie(int codigo_aluno,int codigo_exercicio){
+        if(codigo_aluno==CA.find_aluno(codigo_aluno)){
+                IE.incluir_item_exercicio(codigo_exercicio);
         }
     }
 };
+class serie{
+    
+};
+int main(){
+    //cadastrando alguns alunos:
+    aluno A[100];
+    for(int i=0;i<5;i++){
+        A[i].cadastra_aluno();
+    }
+    //cadastrando alguns exercicios:
+    exercicio E[100];
+    for(int i=0;i<5;i++){
+        E[i].cadastra_exercicio();
+    }
+    //cadastrando 3 instrutores:
+    instrutor I[100];//número maximo de instutores que podem ser cadastrados
+    for(int i=0;i<5;i++){
+        I[i].cadastra_instrutor();
+    }
+    CatalogoAluno CA;
+    cout<< CA.find_aluno(1234);
+}
