@@ -1,18 +1,30 @@
 <?php
     class exercicio{
-        private $nome_exercicio;
-        private $cod_exercicio;
-        public function cadastra_exercicio($nome_exercicio,$cod_exercicio){
-                $this->nome_aluno=$nome_exercicio;
-                $this->cod_exercicio=$cod_exercicio;
+
+        private $codexe;
+        private $nome;
+        private $descricao;
             
+        function __construct($codexe,$nome,$descricao)
+        {
+            $this->codexe=$codexe;
+            $this->nome=$nome;
+            $this->descricao=$descricao;
         }
-        public function get_exercicio(){
-            return $this->nome_exercicio;
+
+       function getnome()
+
+        {
+            return $this->nome;
+        }
+        function getcod()
+        {
+
+            return $this->codexe;
+        }
+        function getdesc()
+        {
+            return $this->descricao;
         }
     }
-$exercicio = new exercicio;
-$exercicio->cadastra_exercicio($_POST["nomeE"],$_POST["cpfE"]);
-var_dump($exercicio->get_exercicio());
 ?>
-

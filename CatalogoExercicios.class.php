@@ -9,9 +9,9 @@ class catalogo_exercicios{
             $this->exercicios[i]->get_exercicio();
         }
     }
-    public function find_exercicio($nome_exercicio){
+    public function find_exercicio($cod_exercicio){
         for($i=0;$i<100;$i++){
-            if($nome_exercicio==$this->exercicios[i]){
+            if($cod_exercicio==$this->exercicios[i]){
                 return $this->exercicios[i];
             }
         }
